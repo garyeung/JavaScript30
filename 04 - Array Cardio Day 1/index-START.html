@@ -38,28 +38,56 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const Invetors1500 = inventors.filter((inventor) => {
+        return inventor.year < 1600 && inventor.year >= 1500;
+    });
+    console.table(Invetors1500);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const inventorsNames = inventors.map((inventor) => {
+      return inventor.first+ " " + inventor.last;
+    }); 
+    console.log(inventorsNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const inventorsSort = inventors.sort((a,b) => (a.year - b.year));
+    console.table(inventorsSort);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const inventorsAge = inventors.map((inventor) => inventor.passed - inventor.year);
+    const amountOfAge = inventorsAge.reduce((amount, currentAge) => (amount+ currentAge), 0);
+    console.log(amountOfAge);
 
     // 5. Sort the inventors by years lived
-
+    const agesSort = inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year));
+    console.table(agesSort);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
-
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const peopeSort = people.sort((a,b)  => {
+      const [aFirst, aLast] = a.split(", ");
+      const [bFirst, bLast] = b.split(", ");
+      return aLast[0] > bLast[0]? 1:-1;
+    })
+    console.log(peopeSort);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    
+    const sumUp = data.reduce((object, item) => {
+      if(!object[item]){
+        object[item] = 0;
+      }
+      object[item]++;
+      return object;
+    }, {});
+    console.log(sumUp);
 
   </script>
 </body>
