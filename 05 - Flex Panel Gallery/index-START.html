@@ -74,6 +74,22 @@
       font-size: 40px;
     }
 
+    /*disappear the first and the last line of panels*/
+    .panel p:first-child{
+      transform: translateX(-100%);
+      transition: transform 3s ease-out;
+    }
+    .panel p:last-child{
+      transform: translateX(100%);
+      transition: transform 3s ease-out;
+    }
+
+    /*able to see the first line and last line of a panel*/
+    .open p:first-child, .open p:last-child {
+      transform: translateY(0);
+      transition: transform 1.5s ease-in-out;
+    }
+
   </style>
 
 
@@ -105,7 +121,7 @@
     </div>
   </div>
 
-  <script>
+  <script src="panel.js">
 
   </script>
 
