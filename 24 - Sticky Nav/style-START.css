@@ -86,3 +86,18 @@ nav a {
   transition: all 0.2s;
   text-transform: uppercase;
 }
+
+.fixnav {
+  padding-top: 77px;
+}
+
+.fixnav nav {
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+}
+.fixnav .logo{
+  max-width: 500px;
+}
+.fixnav .site-wrap{
+  transform: scale(1);
+}
